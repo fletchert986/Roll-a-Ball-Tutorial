@@ -12,7 +12,17 @@ public class CameraController : MonoBehaviour {
 	void Start () {
         offset = transform.position - player.transform.position;
 	}
-	
+    private void Update()
+    {
+        if (Input.GetKey("escape"))
+            Application.Quit();
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+    }
+    
 	// Update is called once per frame
 	void LateUpdate () {
         transform.position = player.transform.position + offset;
